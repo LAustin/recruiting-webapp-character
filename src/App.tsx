@@ -1,23 +1,42 @@
-import { useState } from 'react';
-import './App.css';
-import { ATTRIBUTE_LIST, CLASS_LIST, SKILL_LIST } from './consts.js';
+import styled from "styled-components";
+import "./App.css";
+import AddCharacter from "./AddCharacter";
+import Characters from "./Characters";
+import SaveCharacter from "./SaveCharacter";
+import { CharactersProvider } from "./CharactersProvider";
 
+const StyledMain = styled.div`
+  flex: 1 1 0;
+  background-color: hsl(220deg 13% 13%);
+  color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+`;
+
+const StyledButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+  justify-content: center;
+`;
 
 function App() {
-  const [num, setNum] = useState<number>(0);
   return (
     <div className="App">
       <header className="App-header">
         <h1>React Coding Exercise</h1>
       </header>
-      <section className="App-section">
-        <div>
-          Value:
-          {num}
-          <button>+</button>
-          <button>-</button>
-        </div>
-      </section>
+      <CharactersProvider>
+        <StyledMain>
+          <StyledButtons>
+            <AddCharacter />
+            <SaveCharacter />
+          </StyledButtons>
+          <Characters />
+        </StyledMain>
+      </CharactersProvider>
     </div>
   );
 }
