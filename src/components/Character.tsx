@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "./App.css";
 import Attributes from "./Attributes";
 import Classes from "./Classes";
 import Skills from "./Skills";

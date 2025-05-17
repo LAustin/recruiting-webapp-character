@@ -1,4 +1,4 @@
-import { SKILL_LIST } from "./consts";
+import { SKILL_LIST } from "../constants/consts";
 import Card from "./Card";
 import styled from "styled-components";
 import Skill from "./Skill";

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useCharacters } from "./CharactersProvider";
-import { getModifier } from "./helpers";
+import { getModifier } from "../helpers/helpers";
 
 const StyledAttribute = styled.div`
   display: flex;

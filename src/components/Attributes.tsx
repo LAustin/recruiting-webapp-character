@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Attribute from "./Attribute";
-import { ATTRIBUTE_LIST } from "./consts";
+import { ATTRIBUTE_LIST } from "../constants/consts";
 import Card from "./Card";
 import { useCharacters } from "./CharactersProvider";
 

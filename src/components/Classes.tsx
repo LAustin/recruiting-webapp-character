@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Class from "./Class";
-import { CLASS_LIST } from "./consts";
+import { CLASS_LIST } from "../constants/consts";
 import Card from "./Card";
 
 const StyledClasses = styled.div`

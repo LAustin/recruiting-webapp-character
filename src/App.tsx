@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import "./App.css";
-import AddCharacter from "./AddCharacter";
-import Characters from "./Characters";
-import SaveCharacter from "./SaveCharacter";
-import { CharactersProvider } from "./CharactersProvider";
+import AddCharacter from "./components/AddCharacter";
+import Characters from "./components/Characters";
+import SaveCharacter from "./components/SaveCharacter";
+import { CharactersProvider } from "./components/CharactersProvider";
 
 const StyledMain = styled.div`
   flex: 1 1 0;

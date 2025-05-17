@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import styled from "styled-components";
 import { useCharacters } from "./CharactersProvider";
-import { getModifier } from "./helpers";
+import { getModifier } from "../helpers/helpers";
 
 const StyledColumn = styled.div`
   text-align: left;
@@ -12,7 +12,17 @@ const StyledModifier = styled.span`
   color: rgba(255, 255, 255, 0.7);
 `;
 
-export default function Skill({ attributeModifier, name, characterIndex }) {
+type SkillProps = {
+  attributeModifier: string;
+  name: string;
+  characterIndex: number;
+};
+
+export default function Skill({
+  attributeModifier,
+  name,
+  characterIndex,
+}: SkillProps) {
   const { characters, incrementSkill, decrementSkill, calcTotalSkills } =
     useCharacters();
   const { attributes, skills } = characters[characterIndex];

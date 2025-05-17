@@ -1,4 +1,4 @@
-import { ATTRIBUTE_LIST } from "./consts";
+import { ATTRIBUTE_LIST } from "../constants/consts";
 
 export type Attributes = {
   Strength: number;
@@ -15,18 +15,13 @@ export type Skills = Record<string, number>;
 
 export type Attribute = (typeof ATTRIBUTE_LIST)[number];
 
-type CharacterState = {
+export type Character = {
   name: string;
   attributes: Attributes;
-
-  // attributesRemaining: number;
   skills: Skills;
-
-  // remainingSkillPoints: number;
-  // calcTotalSkill: (skillName: string) => number;
 };
 
-export type State = {
+export type CharacterProviderState = {
   addNewCharacter: () => void;
   incrementAttribute: ({
     characterIndex,
@@ -65,5 +60,5 @@ export type State = {
     characterIndex: number;
     skillName: string;
   }) => number;
-  characters: CharacterState[];
+  characters: Character[];
 };

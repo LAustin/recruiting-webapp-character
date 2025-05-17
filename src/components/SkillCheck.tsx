@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Card from "./Card";
-import { SKILL_LIST } from "./consts";
-import { generateRoll } from "./helpers";
+import { SKILL_LIST } from "../constants/consts";
+import { generateRoll } from "../helpers/helpers";
 import { useCharacters } from "./CharactersProvider";
 
 const Divider = styled.div`

@@ -1,4 +1,4 @@
-import type { Attributes, Class, Skills } from "./types";
+import type { Attributes, Class, Skills } from "../types/types";
 
 export const ATTRIBUTE_LIST = [
   "Strength",

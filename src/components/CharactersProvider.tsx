@@ -1,14 +1,20 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  ReactNode,
+  useState,
+} from "react";
 import {
   DEFAULT_CHARACTER,
   MAX_ATTRIBUTE_POINTS,
   SKILL_LIST,
-  API_URL,
-} from "./consts";
-import { getModifier, getPointsToSpend } from "./helpers";
-import { State } from "./types";
+} from "../constants/consts";
+import { getModifier, getPointsToSpend } from "../helpers/helpers";
+import { CharacterProviderState } from "../types/types";
+import { getCharacters } from "../api/v1/getCharacters";
 
-const DEFAULT_STATE: State = {
+const DEFAULT_STATE: CharacterProviderState = {
   incrementAttribute: () => {},
   decrementAttribute: () => {},
   getRemainingAttributePoints: () => 0,
@@ -26,30 +32,20 @@ export const useCharacters = function () {
   return useContext(CharactersContext);
 };
 
-const request = {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-  },
+type CharacterProviderProps = {
+  children: ReactNode;
 };
 
-export function CharactersProvider({ children }) {
+export function CharactersProvider({ children }: CharacterProviderProps) {
   const [characters, setCharacters] = useState([DEFAULT_CHARACTER]);
 
   useEffect(() => {
-    const fetchData = async function () {
-      try {
-        const response = await fetch(API_URL, request);
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-        const json = await response.json();
-        setCharacters(json.body);
-      } catch (error) {
-        console.error(error.message);
-      }
+    const effect = async function () {
+      const data = await getCharacters();
+      if (data) setCharacters(data);
     };
-    fetchData();
+
+    effect();
   }, []);
 
   const addNewCharacter = function () {
